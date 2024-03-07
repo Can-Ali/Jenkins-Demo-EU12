@@ -1,5 +1,11 @@
 pipeline {
     agent any // { label 'master' }
+
+    options {
+        timestamps ()
+        ansiColor('vga')
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+    }
     stages {
         stage('build') {
             steps {
